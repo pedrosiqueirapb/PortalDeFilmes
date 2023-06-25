@@ -12,7 +12,7 @@ main{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    row-gap: 1.5rem;
+    gap: 1.5em;
 }
 .infos{
     padding: 0.8em;
@@ -33,7 +33,7 @@ main{
     color: #dc3545;
     font-family: 'Karla', sans-serif;
     font-weight: 600;
-    text-shadow: 1.4px 1.4px 0px #000000;
+    text-shadow: 1.5px 1.5px 0px #000000;
 }
 .sinopse{
     display: none;
