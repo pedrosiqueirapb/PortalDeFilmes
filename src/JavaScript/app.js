@@ -23,8 +23,30 @@ fetch("https://api.themoviedb.org/3/movie/popular?api_key=32f42fc190830e705f73dc
     })
     .then(json =>{ // função que manipula o JSON retornado acima
         console.log(json);
-        let i;
-        for(i=0; i<10; i++){
-            document.querySelector('main').innerHTML += `${json.results[i].original_title}<br>`;
-        }
+        exibeFilmes(json.results) 
     })
+
+function exibeFilmes(data){
+
+    document.querySelector('main').innerHTML = "";
+
+    data.forEach(element => {
+        const{title, vote_average, overview, poster_path} = element;
+        const tag = document.createElement('div');
+        tag.classList.add('filme', 'col-4');
+        tag.innerHTML = `
+        <div class="poster">
+            <img src="https://image.tmdb.org/t/p/w400/${poster_path}" alt="${title}">
+        </div>
+        <div class="infos">
+            <h5>${title}</h5>
+            <span id="avaliacao">${vote_average}</span>
+        </div>
+        <div class="sinopse">
+            <p>${overview}</p>
+        </div>
+        `;
+        
+        document.querySelector('main').appendChild(tag);
+    });
+}
