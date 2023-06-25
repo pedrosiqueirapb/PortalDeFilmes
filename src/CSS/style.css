@@ -14,6 +14,9 @@ main{
     flex-wrap: wrap;
     gap: 1.5em;
 }
+.filme{
+    border: 1px solid #000;
+}
 .infos{
     padding: 0.8em;
     background-color: #121314;
