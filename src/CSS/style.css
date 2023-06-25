@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Cabeçalho */
+
+
+/* Corpo */
+main{
+    background-color: #171a21;
+}
+.infos{
+    padding: 0.6em;
+    background-color: #121314;
+    display: flex;
+    justify-content: space-around;
+}
+#avaliacao{
+    background-color: #dc3545;
+    font-size: 17px;
+    font-weight: bold;
+    color: #f7f7f7;
+    height: min-content;
+    padding: 0px 4px 2px 3px;
+} 
+.infos h4{
+    color: #dc3545;
+}
+
+/* Rodapé */

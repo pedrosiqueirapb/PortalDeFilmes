@@ -21,7 +21,7 @@ fetch("https://api.themoviedb.org/3/movie/popular?api_key=32f42fc190830e705f73dc
     .then(response=>{ // função que retorna a resposta da requisição
         return response.json(); // retorna no formato JSON (JavaScript Object Notation)
     })
-    .then(json =>{ // função que manipula o objeto
+    .then(json =>{ // função que manipula o JSON retornado acima
         console.log(json);
         let i;
         for(i=0; i<10; i++){
