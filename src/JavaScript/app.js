@@ -18,10 +18,10 @@ xhr.send();
 */
 
 fetch("https://api.themoviedb.org/3/movie/popular?api_key=32f42fc190830e705f73dca17d56ebf7")
-    .then(response=>{
-        return response.json();
+    .then(response=>{ // função que retorna a resposta da requisição
+        return response.json(); // retorna no formato JSON (JavaScript Object Notation)
     })
-    .then(json =>{
+    .then(json =>{ // função que manipula o objeto
         console.log(json);
         let i;
         for(i=0; i<10; i++){
