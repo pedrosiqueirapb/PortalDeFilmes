@@ -27,31 +27,47 @@ fetch("https://api.themoviedb.org/3/movie/popular?api_key=32f42fc190830e705f73dc
 
 function exibeFilmes(data){
 
-    document.querySelector('main').innerHTML = "";
+    document.querySelector('main').innerHTML = `
+    <div class="container">
+        <div class="row">
+        
+        </div>
+    </div>
+    `;
 
     data.forEach(element => { // para cada resultado do objeto JSON
         const{title, vote_average, overview, poster_path} = element;
         const tag = document.createElement('div'); // cria um elemento <div>
-        tag.classList.add('filme'); // adiciona a classe filme a esse novo elemento
+        tag.classList.add('filme', 'col-lg-5'); // adiciona a classe filme a esse novo elemento
         tag.innerHTML = `
-        <a href="infosFilme.html">
-            <div class="poster">
-                <img src="https://image.tmdb.org/t/p/w400/${poster_path}" alt="${title}">
-            </div>
-        </a>
+        <div class="poster">
+            <img src="https://image.tmdb.org/t/p/w400/${poster_path}" alt="${title}">
+        </div>
         <div class="infos">
             <div class="titulo">
                 <h5>${title}</h5>
-                <span id="avaliacao">${vote_average}</span>
+                <span id="avaliacao">${addCasaDecimal(vote_average)}</span>
             </div>
 
             <div class="sinopse">
-            <h5>Sinopse</h5>
-            <p>${overview}</p>
-        </div>
+                <h5>Sinopse</h5>
+                <p>${overview}</p>
+            </div>
         </div>
         `; // cria a estrutura da <div>
         
-        document.querySelector('main').appendChild(tag); // adiciona o filme dentro da tag <main>
+        document.querySelector('.row').appendChild(tag); // adiciona o filme dentro da tag <main>
     });
+}
+
+// função para adicionar casa decimal a um número de apenas 1 algarismo
+function addCasaDecimal(vote){
+    var string = vote.toString();
+
+    if(string.length == 1){
+        return `${string}`+".0";
+    }
+    else{
+        return string;
+    }
 }

@@ -32,18 +32,16 @@ header #logo{
 }
 
 /* Corpo */
-body{
+#body{
     background-color: #171a21;
 }
-main{
+.row{
     display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1.5em;
+    justify-content: center;
 }
 .filme{
-    border: 1px solid #000;
     overflow: hidden;
+    margin-bottom: 0.7cm;
 }
 .filme:hover .sinopse{
     transform: translateY(0%);
@@ -57,10 +55,16 @@ main{
     font-family: 'Play', sans-serif;
     text-shadow: 1.5px 1.5px 0px #000;
 }
+.poster img{
+    border: 1px solid #000000;
+}
 .infos{
     background-color: #121314;
-    width: 400px;
     position: relative;
+    width: 401.5px;
+    border-width: 0 1px 1px;
+    border-color: #000000;
+    border-style: solid;
 }
 .infos .titulo{
     font-family: 'Play', sans-serif;
@@ -83,7 +87,6 @@ main{
     padding: 0px 4px 2px 3px;
 }
 .sinopse{
-    width: 400px;
     text-align: justify;
     padding: 10px;
     background-color: #f7f7f7;
