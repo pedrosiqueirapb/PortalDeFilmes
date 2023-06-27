@@ -22,7 +22,7 @@ fetch("https://api.themoviedb.org/3/movie/popular?api_key=32f42fc190830e705f73dc
         return response.json(); // retorna no formato JSON (JavaScript Object Notation)
     })
     .then(json =>{ // função que manipula o JSON retornado acima
-        exibeFilmes(json.results) 
+        exibeFilmes(json.results) ;
     })
 
 function exibeFilmes(data){

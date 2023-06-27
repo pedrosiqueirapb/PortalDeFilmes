@@ -55,6 +55,7 @@ main{
     text-align: center;
     margin-bottom: 0.6em;
     font-family: 'Play', sans-serif;
+    text-shadow: 1.5px 1.5px 0px #000;
 }
 .infos{
     background-color: #121314;
