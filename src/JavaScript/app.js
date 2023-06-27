@@ -38,11 +38,15 @@ function exibeFilmes(data){
             <img src="https://image.tmdb.org/t/p/w400/${poster_path}" alt="${title}">
         </div>
         <div class="infos">
-            <h5>${title}</h5>
-            <span id="avaliacao">${vote_average}</span>
-        </div>
-        <div class="sinopse">
+            <div class="titulo">
+                <h5>${title}</h5>
+                <span id="avaliacao">${vote_average}</span>
+            </div>
+
+            <div class="sinopse">
+            <h5>Sinopse</h5>
             <p>${overview}</p>
+        </div>
         </div>
         `; // cria a estrutura da <div>
         

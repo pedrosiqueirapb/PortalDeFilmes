@@ -49,13 +49,27 @@ main{
 }
 .filme{
     border: 1px solid #000;
+    overflow: hidden;
+}
+.filme:hover .sinopse{
+    transform: translateY(0%);
+    transition: transform 0.7s ease;
+    opacity: 100%;
 }
 .infos{
-    padding: 0.8em;
     background-color: #121314;
+    width: 400px;
+    position: relative;
+}
+.infos .titulo{
+    color: #dc3545;
+    font-family: 'Play', sans-serif;
+    font-weight: 600;
+    text-shadow: 1.5px 1.5px 0px #000000;
+    letter-spacing: 0.02em;
     display: flex;
     justify-content: space-between;
-    width: 400px;
+    padding: 0.8em;
 }
 #avaliacao{
     background-color: #dc3545;
@@ -64,16 +78,18 @@ main{
     color: #f7f7f7;
     height: min-content;
     padding: 0px 4px 2px 3px;
-} 
-.infos h5{
-    color: #dc3545;
-    font-family: 'Play', sans-serif;
-    font-weight: 600;
-    text-shadow: 1.5px 1.5px 0px #000000;
-    letter-spacing: 0.02em;
 }
 .sinopse{
-    display: none;
+    width: 400px;
+    text-align: justify;
+    padding: 10px;
+    background-color: #f7f7f7;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(100%);
+    opacity: 0;
 }
 
 /* Rodapé */
