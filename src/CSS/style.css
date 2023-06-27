@@ -37,11 +37,14 @@ header #logo{
 }
 .row{
     display: flex;
-    justify-content: center;
+    justify-content: center; /* alinha os elementos no centro da row */
+    gap: 1cm;
 }
 .filme{
     overflow: hidden;
-    margin-bottom: 0.7cm;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* alinha os elementos no centro da <div> filme que possui tamanho de col-lg-5 */
 }
 .filme:hover .sinopse{
     transform: translateY(0%);
@@ -61,7 +64,7 @@ header #logo{
 .infos{
     background-color: #121314;
     position: relative;
-    width: 401.5px;
+    width: 25.081em;
     border-width: 0 1px 1px;
     border-color: #000000;
     border-style: solid;
