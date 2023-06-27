@@ -34,9 +34,11 @@ function exibeFilmes(data){
         const tag = document.createElement('div'); // cria um elemento <div>
         tag.classList.add('filme'); // adiciona a classe filme a esse novo elemento
         tag.innerHTML = `
-        <div class="poster">
-            <img src="https://image.tmdb.org/t/p/w400/${poster_path}" alt="${title}">
-        </div>
+        <a href="infosFilme.html">
+            <div class="poster">
+                <img src="https://image.tmdb.org/t/p/w400/${poster_path}" alt="${title}">
+            </div>
+        </a>
         <div class="infos">
             <div class="titulo">
                 <h5>${title}</h5>
