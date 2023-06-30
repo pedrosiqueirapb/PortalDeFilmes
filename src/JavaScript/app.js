@@ -23,7 +23,7 @@ function exibeFilmes(data){
     data.forEach(element => { // para cada resultado do objeto JSON
         const{title, vote_average, overview, poster_path} = element;
         const tag = document.createElement('div'); // cria um elemento <div>
-        tag.classList.add('filme', 'col-lg-5'); // adiciona a classe filme a esse novo elemento
+        tag.classList.add('filme', 'col-lg-5'); // adiciona as seguintes classes a esse novo elemento
         tag.innerHTML = `
         <div class="poster">
             <img src="https://image.tmdb.org/t/p/w400/${poster_path}" alt="${title}">
