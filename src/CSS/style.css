@@ -13,7 +13,7 @@ header #logo{
     width: 130px;
     margin-left: 1em;
 }
-.inputSearch{
+#formSearch{
     float: right;
     position: relative;
     top: 2.2em;

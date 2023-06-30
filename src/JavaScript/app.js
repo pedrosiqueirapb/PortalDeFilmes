@@ -1,29 +1,14 @@
-/*
-// instanciando objeto para fazer requisição
-var xhr = new XMLHttpRequest();
+requisicao("https://api.themoviedb.org/3/movie/popular?api_key=32f42fc190830e705f73dca17d56ebf7");
 
-// quando o estado do objeto mudar
-xhr.onreadystatechange = ()=>{
-    if(xhr.readyState == 4 && xhr.status == 200)
-        // estado (4) = concluído
-        // status (200) = ok
-        console.log(xhr.response); // escreve no console o retorno da requisição
-}
-
-// tipo da requisição e a url do servidor
-xhr.open("GET", "https://api.themoviedb.org/3/movie/popular?api_key=32f42fc190830e705f73dca17d56ebf7");
-
-// mandando requisição
-xhr.send();
-*/
-
-fetch("https://api.themoviedb.org/3/movie/popular?api_key=32f42fc190830e705f73dca17d56ebf7")
+function requisicao(url){
+fetch(url)
     .then(response=>{ // função que retorna a resposta da requisição
         return response.json(); // retorna no formato JSON (JavaScript Object Notation)
     })
     .then(json =>{ // função que manipula o JSON retornado acima
         exibeFilmes(json.results) ;
     })
+}
 
 function exibeFilmes(data){
 
@@ -71,3 +56,34 @@ function addCasaDecimal(vote){
         return string;
     }
 }
+
+const form = document.querySelector('#formSearch');
+const inputSearch = document.querySelector('#search');
+const titulo = document.querySelector('#titulo');
+
+// evento caso o usuário pressione Enter ao digitar algo
+form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+
+    if(inputSearch.value.length != 0){ // se o usuário digitar algo
+        requisicao(`https://api.themoviedb.org/3/search/movie?api_key=32f42fc190830e705f73dca17d56ebf7&query=${inputSearch.value}`);
+        titulo.innerHTML = `<h1 id="titulo">${inputSearch.value}</h1>`;
+    }
+    else{
+        requisicao("https://api.themoviedb.org/3/movie/popular?api_key=32f42fc190830e705f73dca17d56ebf7");
+        titulo.innerHTML = `<h1 id="titulo">Filmes Populares</h1>`;
+    }
+})
+
+const btnSearch = document.querySelector('.bi-search');
+// evento caso o usuário clique no botão de pesquisar
+btnSearch.addEventListener('click', ()=>{
+    if(inputSearch.value.length != 0){
+        requisicao(`https://api.themoviedb.org/3/search/movie?api_key=32f42fc190830e705f73dca17d56ebf7&query=${inputSearch.value}`);
+        titulo.innerHTML = `<h1 id="titulo">${inputSearch.value}</h1>`;
+    }
+    else{
+        requisicao("https://api.themoviedb.org/3/movie/popular?api_key=32f42fc190830e705f73dca17d56ebf7");
+        titulo.innerHTML = `<h1 id="titulo">Filmes Populares</h1>`;
+    }
+});
