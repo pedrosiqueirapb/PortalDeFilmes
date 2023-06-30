@@ -6,7 +6,8 @@ fetch(url)
         return response.json(); // retorna no formato JSON (JavaScript Object Notation)
     })
     .then(json =>{ // função que manipula o JSON retornado acima
-        exibeFilmes(json.results) ;
+        exibeFilmes(json.results);
+        console.log(json.results);
     })
 }
 
