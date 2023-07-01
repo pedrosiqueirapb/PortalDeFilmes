@@ -32,7 +32,7 @@ function exibeFilmes(data){
         <div class="infos">
             <div class="titulo">
                 <h5>${title}</h5>
-                <span id="avaliacao">${addCasaDecimal(vote_average)}</span>
+                <span id="avaliacao">${alterCasaDecimal(vote_average)}</span>
             </div>
 
             <div class="sinopse">
@@ -46,12 +46,18 @@ function exibeFilmes(data){
     });
 }
 
-// função para adicionar casa decimal a um número de apenas 1 algarismo
-function addCasaDecimal(vote){
+// função para alterar a nota do filme para um valor padrão
+function alterCasaDecimal(vote){
     var string = vote.toString();
 
     if(string.length == 1){
         return `${string}`+".0";
+    }
+    else if(string.length == 4){
+        return string.slice(0, -1); // extrair o último caractere da string
+    }
+    else if(string.length == 5){
+        return string.slice(0, -2); // extrair os dois últimos caracteres da string
     }
     else{
         return string;
