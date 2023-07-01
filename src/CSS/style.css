@@ -35,7 +35,6 @@ header #logo{
 }
 #search:focus{
     outline: none;
-    border-color:#2652e2;
 }
 #search::placeholder{
     color: #f7f7f7a0
