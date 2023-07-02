@@ -28,7 +28,16 @@ header #logo{
 #search{
     margin-left: 0.5em;
     border-radius: 5px;
-    border: 1px solid #000000;
+    border: none;
+    background-color: #39414f;
+    color: #f7f7f7;
+    text-indent: 3px;
+}
+#search:focus{
+    outline: none;
+}
+#search::placeholder{
+    color: #f7f7f7a0
 }
 
 /* Corpo */

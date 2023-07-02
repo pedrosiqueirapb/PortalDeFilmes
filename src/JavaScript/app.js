@@ -7,7 +7,6 @@ fetch(url)
     })
     .then(json =>{ // função que manipula o JSON retornado acima
         exibeFilmes(json.results);
-        console.log(json.results);
     })
 }
 
@@ -27,12 +26,12 @@ function exibeFilmes(data){
         tag.classList.add('filme', 'col-lg-5'); // adiciona as seguintes classes a esse novo elemento
         tag.innerHTML = `
         <div class="poster">
-            <img src="https://image.tmdb.org/t/p/w400/${poster_path}" alt="${title}">
+            <img src="${setPosterPath("https://image.tmdb.org/t/p/w400/" + poster_path)}" alt="${title}">
         </div>
         <div class="infos">
             <div class="titulo">
                 <h5>${title}</h5>
-                <span id="avaliacao">${addCasaDecimal(vote_average)}</span>
+                <span id="avaliacao">${alterCasaDecimal(vote_average)}</span>
             </div>
 
             <div class="sinopse">
@@ -46,16 +45,25 @@ function exibeFilmes(data){
     });
 }
 
-// função para adicionar casa decimal a um número de apenas 1 algarismo
-function addCasaDecimal(vote){
+function setPosterPath(path){
+    if(path !== "https://image.tmdb.org/t/p/w400/null")
+        return path;
+    else
+        return '../imgs/padrao.png';
+}
+
+// função para alterar a nota do filme para um valor padrão
+function alterCasaDecimal(vote){
     var string = vote.toString();
 
-    if(string.length == 1){
+    if(string.length == 1)
         return `${string}`+".0";
-    }
-    else{
+    else if(string.length == 4)
+        return string.slice(0, -1); // extrair o último caractere da string
+    else if(string.length == 5)
+        return string.slice(0, -2); // extrair os dois últimos caracteres da string
+    else
         return string;
-    }
 }
 
 const form = document.querySelector('#formSearch');
