@@ -46,10 +46,10 @@ function exibeFilmes(data){
 }
 
 function setPosterPath(path){
-    if(path !== "https://image.tmdb.org/t/p/w400/null")
+    if(path !== "https://image.tmdb.org/t/p/w400/null") // verifica se há um poster para o filme
         return path;
     else
-        return '../imgs/padrao.png';
+        return '../imgs/padrao.png'; // se não houver, retorna uma imagem informando que não há poster para o filme
 }
 
 // função para alterar a nota do filme para um valor padrão
