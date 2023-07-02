@@ -2,8 +2,8 @@ requisicao("https://api.themoviedb.org/3/movie/popular?api_key=32f42fc190830e705
 
 function requisicao(url){
 fetch(url)
-    .then(response=>{ // função que retorna a resposta da requisição
-        return response.json(); // retorna no formato JSON (JavaScript Object Notation)
+    .then(response=>{ 
+        return response.json(); // retorna a resposta em formato JSON
     })
     .then(json =>{ // função que manipula o JSON retornado acima
         exibeFilmes(json.results);
