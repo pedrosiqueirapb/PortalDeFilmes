@@ -2,8 +2,8 @@ requisicao("https://api.themoviedb.org/3/movie/popular?api_key=32f42fc190830e705
 
 function requisicao(url){
 fetch(url)
-    .then(response=>{ // função que retorna a resposta da requisição
-        return response.json(); // retorna no formato JSON (JavaScript Object Notation)
+    .then(response=>{ 
+        return response.json(); // retorna a resposta em formato JSON
     })
     .then(json =>{ // função que manipula o JSON retornado acima
         exibeFilmes(json.results);
@@ -46,10 +46,10 @@ function exibeFilmes(data){
 }
 
 function setPosterPath(path){
-    if(path !== "https://image.tmdb.org/t/p/w400/null")
+    if(path !== "https://image.tmdb.org/t/p/w400/null") // verifica se há um poster para o filme
         return path;
     else
-        return '../imgs/padrao.png';
+        return '../imgs/padrao.png'; // se não houver, retorna uma imagem informando que não há poster para o filme
 }
 
 // função para alterar a nota do filme para um valor padrão
